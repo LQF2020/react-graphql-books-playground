@@ -1,20 +1,8 @@
 import classes from "./CreateBook.module.css";
 import { useState, useEffect } from "react";
 import { useMutation, gql } from "@apollo/client";
+import { ADD_BOOK } from "../../../../graphql/requests";
 
-const ADD_BOOK = gql`
-    mutation AddBook($name: String!, $genre: String!, $authorID: ID!) {
-        addBook(name: $name, genre: $genre, authorID: $authorID) {
-            _id
-            name
-            genre
-            author {
-                name
-                age
-            }
-        }
-    }
-`;
 const renderAllAuthors = (authors) => {
     return authors.map((author) => (
         <option value={author._id} key={author._id}>

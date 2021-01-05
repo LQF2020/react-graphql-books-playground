@@ -1,15 +1,7 @@
 import classes from "./CreateAuthor.module.css";
 import { useState, useEffect } from "react";
 import { useMutation, gql } from "@apollo/client";
-
-const ADD_AUTHOR = gql`
-    mutation AddAuthor($name: String!, $age: Int!) {
-        addAuthor(name: $name, age: $age) {
-            _id
-            name
-        }
-    }
-`;
+import { ADD_AUTHOR } from "../../../../graphql/requests";
 
 const CreateAuthor = (props) => {
     const [addAuthor, { data: newAuthor }] = useMutation(ADD_AUTHOR);

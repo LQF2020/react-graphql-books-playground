@@ -3,28 +3,11 @@ import { useState, useEffect } from "react";
 import { useQuery, gql } from "@apollo/client";
 import Books from "./Books/Books";
 import BookHandler from "./BookHandler/BookHandler";
-
-const Get_All_AUTHORS_AND_BOOKS = gql`
-    query GetAllAuthorsAndBooks {
-        books {
-            _id
-            name
-            genre
-            author {
-                name
-                age
-            }
-        }
-        authors {
-            _id
-            name
-        }
-    }
-`;
+import { GET_All_AUTHORS_AND_BOOKS } from "../../graphql/requests";
 
 const BookList = (props) => {
     const { loading, error, data: allAuthorsAndBooks } = useQuery(
-        Get_All_AUTHORS_AND_BOOKS
+        GET_All_AUTHORS_AND_BOOKS
     );
     const [books, setBooks] = useState([]);
     const [authors, setAuthors] = useState([]);

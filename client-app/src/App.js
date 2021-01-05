@@ -4,7 +4,7 @@ import BookDisplay from "./components/BookDisplay/BookDisplay";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { useState } from "react";
 const client = new ApolloClient({
-    uri: "http://127.0.0.1:4000/graphql",
+    uri: process.env.REACT_APP_GRAPHQL_SERVER,
     cache: new InMemoryCache(),
 });
 function App() {
